@@ -1,0 +1,47 @@
+.container-fluid.text-center.container__color
+  %header
+    %h3 Welcome to Simple TODO list, {{email}}
+    %span 
+  %hr
+  .control
+    %button.btn.btn-danger.add_project{'ng-click': 'addProject()'} Start Project
+    %button.btn.btn-info{'ng-click': 'back()'} Main page
+  %hr
+  %section
+    .col-md-10.col-xs-offset-1
+      %table.table{'ng-repeat': 'project in projects track by $index'}
+        %thead
+          %th
+            .center
+              %h5 {{project.name}}
+          %th
+          %th
+          %th
+            %span.pull-right
+              %i.bigger.glyphicons.glyphicon-remove
+        %tbody
+          %tr
+            %td
+            %td.col-md-6
+              .input-group
+                %span.input-group-addon
+                  %i.glyphicon.glyphicon-plus
+                %input{type: "text", class: 'form-control', 'ng-model': 'newTask'}
+                .input-group-btn
+                  %button.btn{'ng-click': 'addTask()'} Add Task
+          %tr{'ng-repeat': 'task in tasks track by $index' }
+            %td
+              %input{type: "checkbox", 'ng-model':'task.state', id: 'taskState'}
+              %span.artificial-checkbox
+            %td {{task.name}}
+            %td {{task.dueDate}}
+            %td
+              .pull-right
+                %span
+                  %i.bigger.glyphicons.glyphicon-pencil
+                %span
+                  %i.bigger.glyphicons.glyphicon-trash
+  %footer.clearfix
+    .col-md-10.col-xs-offset-1.text-center
+      %a{href: "https://github.com/Shamash2014"}
+        .small#author &copy;Shamash_2014

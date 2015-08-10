@@ -1,0 +1,13 @@
+.container.main-part
+  .text-center
+    .header
+      %h3 Welcome to Simple Todo
+    .main
+      .email-form
+        %hr
+        %span.form_header Enter your email to continue
+        %br
+        %input{type: "text", 'ng-bind': 'email'}
+        %br
+        %hr
+      %button.btn.add_email{'ui-sref': 'home'} Submit

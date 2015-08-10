@@ -2,19 +2,68 @@
  *  If you want to override some bootstrap variables, you have to change values here.
  *  The list of variables are listed here bower_components/bootstrap-stylus/bootstrap/variables.styl
  */
-$navbar-inverse-link-color = #5AADBB
-$icon-font-path = "../../bower_components/bootstrap-stylus/fonts/"
-
 /**
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
  *  stylus dependencies when defined in the bower.json of your dependencies
  */
 // bower:styl
 // endbower
-
+email-color  = white
+form-background = grey
+top-location = 10%
+center = 0 auto
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your stylus files automatically
  */
 // injector
 // endinjector
+.container__color
+  background #F5F5F0
+#author
+  margin top-location + 2%
+footer
+  background #F8F8F7
+.main-part
+  margin-top top-location
+.text-center
+  text-align center
+.bottom
+  position relative
+  margin-top 60%
+  padding 5px
+
+.email-form
+  background form-background
+
+.form_header
+  color email-color
+
+.add_email
+  color email-color
+  background form-background
+
+
+table
+  @extend .text-center
+  margin center
+th > h5
+  margin center
+
+th
+  @extend table
+  color email-color
+  background form-background
+
+#taskState
+  outline none
+  display none
+
+#taskState:not(:checked) + .artificial-checkbox:before
+  display inline-block
+  height 10px
+  width 10px
+  border-radius 20px
+a:hover, a:focus
+  color red
+  text-decoration none
