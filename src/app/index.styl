@@ -12,6 +12,7 @@ email-color  = white
 form-background = grey
 top-location = 10%
 center = 0 auto
+link-decorations = none
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your stylus files automatically
@@ -69,3 +70,12 @@ th
 a:hover, a:focus
   color red
   text-decoration none
+
+#project-name
+  text-decoration link-decorations
+  color white
+  border-bottom 1px solid white
+#task-name
+  text-decoration link-decorations
+  border-bottom 1px solid grey
+  color black

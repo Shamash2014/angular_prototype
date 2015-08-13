@@ -1,3 +1,3 @@
 angular.module "angularTest"
-  # .run (editableOptions) ->
-    # editableOptions.theme = 'bs3'
+  .run (editableOptions) ->
+    editableOptions.theme = 'bs3'
