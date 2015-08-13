@@ -19,22 +19,13 @@ angular.module "angularTest"
       window.history.back()
 
     $scope.addTask = () ->
-      newTask = { name: @newTask, state: false, dueDate: 0 }
+      newTask = { name: 'Add your task name here', state: false, dueDate: 0 }
       $scope.tasks.push newTask
       console.log $scope.tasks
       @newTask = ''
 
     $scope.addProject = () ->
       $scope.projects.push newProject
-
-    $scope.editTask = (task) ->
-      $scope.editedTask =  task
-      $scope.originalTask = angular.extend({}, task)
-
-    $scope.editFinish = (task) ->
-      task.name = task.name.trim
-      $scope.removeTask if !task.name
-      $scope.tasks.push task
 
     $scope.removeTask = (task) ->
       $scope.tasks.splice($scope.tasks.indexOf(task), 1)
