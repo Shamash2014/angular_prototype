@@ -2,7 +2,7 @@ angular.module "angularTest"
   .controller "HomeController", ($scope) ->
     $scope.email = 'warp.buddhist@gmail.com'
     today = new Date()
-    @newTask = ''
+    @newTask or= 'Add your task name here'
     newProject = { name: 'Type here your project name' }
     $scope.editedTask = null
 
@@ -19,7 +19,8 @@ angular.module "angularTest"
       window.history.back()
 
     $scope.addTask = () ->
-      newTask = { name: 'Add your task name here', state: false, dueDate: 0 }
+      newTask = {name: @newTask, state:false, dueDate: 0}
+      newTask = { name: 'Add your task name here', state: false, dueDate: 0 } if @newTask is ''
       $scope.tasks.push newTask
       console.log $scope.tasks
       @newTask = ''
