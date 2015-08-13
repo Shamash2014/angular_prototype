@@ -42,3 +42,7 @@ angular.module "angularTest"
     $scope.removeProject = (project) ->
       $scope.projects.splice($scope.projects.indexOf(project), 1)
 
+    $scope.selectAll = () ->
+      $scope.tasks.map (task)->
+        task.state = !task.state
+

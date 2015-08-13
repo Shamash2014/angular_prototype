@@ -27,5 +27,5 @@ describe('The main view', function () {
     returnMain.click;
     expect(browser.getCurrentUrl())
     .toBe('/');
-  })
+  });
 });

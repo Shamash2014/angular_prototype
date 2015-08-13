@@ -17,10 +17,11 @@
               %h5 {{project.name}}
           %th
             %span.pull-right{'ng-click':'removeProject(project)'}
-              %i.bigger.glyphicon.glyphicon-trash
+              %i.bigger.glyphicon.glyphicon-remove
         %tbody
           %tr
             %td
+              %button.btn{'ng-click':'selectAll()'}  Make all done/undone
             %td.col-md-6
               .input-group
                 %span.input-group-addon
@@ -31,12 +32,11 @@
           %tr{'ng-repeat': 'task in tasks track by $index' }
             %td
               %input{type: "checkbox", 'ng-model':'task.state', id: 'taskState'}
-              %span.artificial-checkbox
             %td {{task.name}}
             %td
               .pull-right
                 %span{ 'ng-click': 'removeTask(task)' }
-                  %i.bigger.glyphicon.glyphicon-trash
+                  %i.bigger.glyphicon.glyphicon-remove
       .space-8
   %footer.clearfix
     .col-md-10.col-xs-offset-1.text-center
