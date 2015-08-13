@@ -2,12 +2,14 @@
   .text-center
     .header
       %h3 Welcome to Simple Todo
-    .main
+    .main.greeting
       .email-form
         %hr
-        %span.form_header Enter your email to continue
-        %br
-        %input{type: "text", 'ng-bind': 'email'}
-        %br
+        .email_form_extended
+          %label.form_header Enter your email to continue
+          %br
+          .col-md-6.col-xs-offset-3
+            %input{type: "text", class:'form-control','ng-model': 'email','pattern': pattern, id: 'welcome-email'}
+          %br
         %hr
-      %button.btn.add_email{'ui-sref': 'home'} Submit
+      %button.btn.add_email{'ui-sref': 'home', 'ng-if': 'email'} Submit

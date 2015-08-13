@@ -1,24 +1,23 @@
 .container-fluid.text-center.container__color
   %header
     %h3 Welcome to Simple TODO list, {{email}}
-    %span 
+    %span
   %hr
   .control
     %button.btn.btn-danger.add_project{'ng-click': 'addProject()'} Start Project
     %button.btn.btn-info{'ng-click': 'back()'} Main page
   %hr
   %section
-    .col-md-10.col-xs-offset-1
+    .col-md-8.col-xs-offset-2
       %table.table{'ng-repeat': 'project in projects track by $index'}
         %thead
+          %th.col-xs-1
           %th
             .center
               %h5 {{project.name}}
           %th
-          %th
-          %th
-            %span.pull-right
-              %i.bigger.glyphicons.glyphicon-remove
+            %span.pull-right{'ng-click':'removeProject(project)'}
+              %i.bigger.glyphicon.glyphicon-trash
         %tbody
           %tr
             %td
@@ -34,13 +33,11 @@
               %input{type: "checkbox", 'ng-model':'task.state', id: 'taskState'}
               %span.artificial-checkbox
             %td {{task.name}}
-            %td {{task.dueDate}}
             %td
               .pull-right
-                %span
-                  %i.bigger.glyphicons.glyphicon-pencil
-                %span
-                  %i.bigger.glyphicons.glyphicon-trash
+                %span{ 'ng-click': 'removeTask(task)' }
+                  %i.bigger.glyphicon.glyphicon-trash
+      .space-8
   %footer.clearfix
     .col-md-10.col-xs-offset-1.text-center
       %a{href: "https://github.com/Shamash2014"}

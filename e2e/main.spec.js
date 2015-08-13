@@ -5,17 +5,27 @@ describe('The main view', function () {
 
   beforeEach(function () {
     browser.get('/index.html');
-    page = require('./main.po');
   });
 
-  it('should include jumbotron with correct data', function() {
-    expect(page.h1El.getText()).toBe('\'Allo, \'Allo!');
+  it('should include greeter with welcome', function() {
+    expect(page.h3El.getText()).toBe('Welcome to Simple Todo!');
     expect(page.imgEl.getAttribute('src')).toMatch(/assets\/images\/yeoman.png$/);
-    expect(page.imgEl.getAttribute('alt')).toBe('I\'m Yeoman');
   });
 
-  it('should list more than 5 awesome things', function () {
-    expect(page.thumbnailEls.count()).toBeGreaterThan(5);
-  });
+  it('should change path to home after "login"', function({
+    var input  = element(by.css('#input-email'));
+    var submit = element(by.css(.add_email));
+    input.sendKeys('warp_shamash@gmail.com');
+    button.click;
+    expect(browser.getCurrentUrl())
+    .toBe('/#/home');
+  }));
 
+  it('should return to main after click on "Main"', function(){
+    var returnMain = element(by.buttonText('Main page'));
+    browser.setLocation('/#/home');
+    returnMain.click;
+    expect(browser.getCurrentUrl())
+    .toBe('/');
+  })
 });
